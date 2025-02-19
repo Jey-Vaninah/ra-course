@@ -1,5 +1,5 @@
 import { Admin, BooleanInput, Create, Datagrid, EmailField, List, NumberInput, Resource, RichTextField, Show, SimpleForm, SimpleShowLayout, TextField, TextInput } from 'react-admin';
-import { dataProvider } from './assets/data-prodiver';
+import { dataProvider } from './providers/data-prodiver';
 
 export const userList = () => {
   return (
