@@ -6,30 +6,6 @@ export const dataProvider: DataProvider = {
         resource: string,
         params: GetListParams & QueryFunctionContext
     ): Promise<GetListResult<RecordType>> {
-        if (resource == 'post') {}
-        const data = await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET' });
-        const { pagination } = params;
-        const { page = 1, perPage = 10 } = pagination || {};
-        const offset = (page - 1) * perPage;
-        const posts = await data.json();
-        const pageNumber = posts.length / perPage;
-        const result: GetListResult = {
-            data: posts.slice(offset, offset + perPage),
-            total: posts.length,
-            pageInfo: {
-                hasNextPage: page < pageNumber,
-                hasPreviousPage: page !== 1,
-            },
-        };
-        return result;
-
-    },
-
-    getList: async function <RecordType extends RaRecord = any>(
-        resource: string,
-        params: GetListParams & QueryFunctionContext
-    ): Promise<GetListResult<RecordType>> {
-        if (resource == 'post') {}
         const data = await fetch('https://jsonplaceholder.typicode.com/posts', { method: 'GET' });
         const { pagination } = params;
         const { page = 1, perPage = 10 } = pagination || {};
